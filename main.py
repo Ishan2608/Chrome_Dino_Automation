@@ -47,4 +47,4 @@ while True:
         mode = 'light'
         dodge(img_data=image_data, mode=mode)
 
-image.show()
+# image.show()
