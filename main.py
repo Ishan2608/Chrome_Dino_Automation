@@ -2,6 +2,8 @@ import pyautogui
 from PIL import ImageGrab
 import time
 
+dist = 430
+
 
 def check_for_dark_theme(img_data):
     for i in range(70, 100):
@@ -12,39 +14,70 @@ def check_for_dark_theme(img_data):
                 return False
 
 
-def dodge(img_data, mode):
-    if mode == 'dark':
-
-        for i in range(190, 325):
-            for j in range(431, 440):
-                if img_data[i, j] > 170:
+def dodge(img_data, game_mode):
+    # detecting cactus
+    global dist
+    for i in range(310, dist):
+        for j in range(480, 490):
+            # if we are in dark mode
+            if game_mode == 'dark':
+                # img_data[i, j] = 255
+                if img_data[i, j] >= 170:
                     pyautogui.keyDown('up')
+                    time.sleep(0.25)
                     return
+            # if we are in light mode
+            # elif game_mode == 'light':
+            #     img_data[i, j] = 0
+            #     if 170 <= img_data[i, j] < 200:
+            #         pyautogui.keyDown('up')
+            #         return
 
-    elif mode == 'light':
+    # detecting bird
+    for i in range(310, 380):
+        for j in range(420, 478):
+            # img_data[i, j] = 255
+            if img_data[i, j] >= 170:
+                pyautogui.keyDown('down')
+                time.sleep(0.3)
+                break
+                return
 
-        for i in range(190, 325):
-            for j in range(431, 440):
-                if 170 < img_data[i, j] < 200:
-                    pyautogui.keyDown('up')
-                    return
+            # if we are in light mode
+            # elif game_mode == 'light':
+            #     img_data[i, j] = 0
+            #     if 170 <= img_data[i, j] < 200:
+            #         pyautogui.keyDown('down')
+            #         return
 
 
 time.sleep(3)
 pyautogui.keyDown('up')
+beginning = time.time()
 
 while True:
-
     image = ImageGrab.grab().convert('L')
     image_data = image.load()
-
     dark_theme = check_for_dark_theme(img_data=image_data)
+
+    now = time.time()
+
+    if beginning - now >= 60:
+        dist = 440
+
+    elif beginning - now >= 40:
+        dist = 450
 
     if dark_theme:
         mode = 'dark'
-        dodge(img_data=image_data, mode=mode)
+        dodge(img_data=image_data, game_mode=mode)
     else:
         mode = 'light'
-        dodge(img_data=image_data, mode=mode)
+        dodge(img_data=image_data, game_mode=mode)
 
+
+# image = ImageGrab.grab().convert('L')
+# image_data = image.load()
+# mode = 'dark'
+# dodge(img_data=image_data, game_mode=mode)
 # image.show()
