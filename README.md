@@ -1,4 +1,4 @@
-# Chrome_Dino_Automation
+# Automation of Chrome's Dino Game using Python
 Automation of google chrome's famous dino game that you can play at the following url in your Google Chrome Browser: chrome://dino
 
 <p>
