@@ -2,8 +2,6 @@ import pyautogui
 from PIL import ImageGrab
 import time
 
-dist = 430
-
 
 def check_for_dark_theme(img_data):
     for i in range(70, 100):
@@ -16,8 +14,7 @@ def check_for_dark_theme(img_data):
 
 def dodge(img_data, game_mode):
     # detecting cactus
-    global dist
-    for i in range(310, dist):
+    for i in range(310, 380):
         for j in range(480, 490):
             # if we are in dark mode
             if game_mode == 'dark':
@@ -34,7 +31,7 @@ def dodge(img_data, game_mode):
             #         return
 
     # detecting bird
-    for i in range(310, 380):
+    for i in range(310, 430):
         for j in range(420, 478):
             # img_data[i, j] = 255
             if img_data[i, j] >= 170:
@@ -53,21 +50,11 @@ def dodge(img_data, game_mode):
 
 time.sleep(3)
 pyautogui.keyDown('up')
-beginning = time.time()
 
 while True:
     image = ImageGrab.grab().convert('L')
     image_data = image.load()
     dark_theme = check_for_dark_theme(img_data=image_data)
-
-    now = time.time()
-
-    if beginning - now >= 60:
-        dist = 440
-
-    elif beginning - now >= 40:
-        dist = 450
-
     if dark_theme:
         mode = 'dark'
         dodge(img_data=image_data, game_mode=mode)
