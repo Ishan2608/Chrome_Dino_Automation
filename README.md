@@ -21,7 +21,11 @@ Automation of google chrome's famous dino game that you can play at the followin
   and moving down is adding y coordinates. Thus (10,10) will be closer to top-left than (20,20). Now depending on your screen size, decide the right distance between
   the dinosaur and an obstacle. If an obstacle comes in this distance, then dinosaur will be made to jump or duck. Use nested for loops with range method to draw a
   rectangle at that spot using image[i, j] = (color value in integer). You will need to play the game yourself multiple times to decide on this distance. <br>
-  It is suggested that dino should jump as early as possible.
+  It is suggested that dino should jump as early as possible. In the below image, the lower block to detect cactus, and the upper block it to detect bird. Remember 
+  that cactus block should not be too below otherwise you will detect all the bumps in the ground and jump unnecessarily.
+  <div>
+    <img src="./code_static_output.PNG" alt="Image for Demonstrating the Distance Estimate">
+  </div>
 </p>
 
 <h2> Step 3: Making him take Action </h2>
