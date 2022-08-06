@@ -7,6 +7,14 @@ Automation of google chrome's famous dino game that you can play at the followin
   Just detect obstacles far enough so that you don't jump only when you get close to it.
 </p>
 
+<hr>
+  <h1> Program Flowchart </h1>
+  <div> 
+    <img src="./Chrome's Dino Automation Flowchart.png" alt="Program Flowchart">
+  </div>
+<hr>
+
+<h1> Guide to Build this Project </h1>
 <h2> Step 1: Setting Up Imports and Grabbing the Image </h2>
 <p>
   Use time module to pause program execution for 3 seconds. In these 3 seconds you must open the chrome tab with dino game open.
@@ -36,3 +44,4 @@ Automation of google chrome's famous dino game that you can play at the followin
   The rectangle to detect cactus should be billow that. Now you can remove the show() method as you don't want to view the image for every instance. Wrap all of
   this in a while loop.
 </p>
+<hr>
