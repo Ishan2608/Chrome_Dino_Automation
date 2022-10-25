@@ -37,7 +37,6 @@ def dodge(img_data, game_mode):
             if img_data[i, j] >= 170:
                 pyautogui.keyDown('down')
                 time.sleep(0.3)
-                break
                 return
 
             # if we are in light mode
