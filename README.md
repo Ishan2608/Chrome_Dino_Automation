@@ -1,47 +1,48 @@
-# Automation of Chrome's Dino Game using Python
-Automation of google chrome's famous dino game that you can play at the following url in your Google Chrome Browser: chrome://dino
+# Chrome's Dino Automation
 
-<p>
-  The program uses pyautogui and pillow library for automatic keypresses and image processing. <br>
-  <b>Note: </b> You will need to change the coordinates that fit to your screen size. 
-  Just detect obstacles far enough so that you don't jump only when you get close to it.
-</p>
+Welcome to Chrome's Dino Automation! This GitHub repository hosts an exciting project that automates the gameplay of the classic Chrome Dino Game. Say goodbye to manual efforts and let this application handle the gameplay for you. Sit back, relax, and watch the dino conquer the obstacles on its own.
 
-<hr>
-  <h1> Program Flowchart </h1>
-  <div> 
-    <img src="./Chrome's Dino Automation Flowchart.png" alt="Program Flowchart">
-  </div>
-<hr>
+## Overview
 
-<h1> Guide to Build this Project </h1>
-<h2> Step 1: Setting Up Imports and Grabbing the Image </h2>
-<p>
-  Use time module to pause program execution for 3 seconds. In these 3 seconds you must open the chrome tab with dino game open.
-  Import the libraries, PyAutoGui and Pillow. Import ImageGrab from Pillow and use grab() method to take a screenshot of the image. Then convert it to a black and
-  white image using convert('L') method.
-  Use load() method to extract image data into a variable. Use show() method to view the screenshot taken by the program.
-</p>
+Chrome's Dino Automation is an intermediate-level project that takes the hassle out of playing the popular Chrome Dino Game. Instead of manually controlling the dino, this application uses image processing techniques to detect obstacles near the dinosaur. Based on the detection results, the dino is automatically made to duck or jump to avoid obstacles and keep the gameplay going in an infinite loop.
 
-<h2> Step 2: Decide the right distance to Jump </h2>
-<p>
-  Once you have take the image, remember the coordinates work such that the top-left corner is (0,0). Moving from this to right side of screen is adding x coordinates
-  and moving down is adding y coordinates. Thus (10,10) will be closer to top-left than (20,20). Now depending on your screen size, decide the right distance between
-  the dinosaur and an obstacle. If an obstacle comes in this distance, then dinosaur will be made to jump or duck. Use nested for loops with range method to draw a
-  rectangle at that spot using image[i, j] = (color value in integer). You will need to play the game yourself multiple times to decide on this distance. <br>
-  It is suggested that dino should jump as early as possible. In the below image, the lower block to detect cactus, and the upper block it to detect bird. Remember 
-  that cactus block should not be too below otherwise you will detect all the bumps in the ground and jump unnecessarily.
-  <div>
-    <img src="./code_static_output.PNG" alt="Image for Demonstrating the Distance Estimate">
-  </div>
-</p>
+## Technologies Used
 
-<h2> Step 3: Making him take Action </h2>
-<p>
-  In the nested loops, once the distance has been decided, check if any image[i, j] is less than or greater than a certain value, 
-  then it means that obstacle was detected. Break the loop there and use pyautogui.keyDown('up') to jump and pyautogui.keyDown('down') to duck. 
-  Remember that the bird can appear at the position of his head too, so the rectangle to detect bird should be from dino's head to little lower than his belly. 
-  The rectangle to detect cactus should be billow that. Now you can remove the show() method as you don't want to view the image for every instance. Wrap all of
-  this in a while loop.
-</p>
-<hr>
+Chrome's Dino Automation project leverages the following technologies to automate the gameplay:
+
+- **Python:** The core language that powers the application's logic and image processing.
+
+- **PyAutoGUI Library:** Used to capture screenshots and simulate keyboard inputs to control the dino's movements.
+- **Pillow:** Used to work with images.
+
+## How It Works
+
+To experience Chrome's Dino Automation:
+
+1. Clone this repository to your local machine.
+
+2. Ensure you have Python installed on your system.
+
+3. Install the required libraries by running:
+
+```
+pip install pyautogui
+```
+
+4. Open the Chrome Dino Game in your web browser.
+
+5. Run the `main.py` script in your Python environment.
+
+6. The application will start capturing screenshots of the game screen.
+
+7. If an object is detected near the dinosaur, the application will automatically make the dino duck or jump to avoid the obstacle.
+
+8. The automation will continue to run in an infinite loop, handling the gameplay for you.
+
+## Important Note
+
+Please ensure to adjust the coordinates of obstacle detection according to your own screen resolution. This step is crucial to ensure accurate detection and smooth gameplay automation.
+
+## Contribution
+
+We welcome contributions from intermediate-level developers interested in enhancing Chrome's Dino Automation. Whether you have ideas for improving detection accuracy, optimizing gameplay, or adding new features, your contributions are highly valued. Please feel free to raise issues and submit pull requests to contribute to the project's growth.
